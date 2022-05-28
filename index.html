@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name="robots" content="noindex">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'>
+    <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <style class="cp-pen-styles">
+        @import url("https://fonts.googleapis.com/css?family=Arimo:400,700");
+        body {
+            height: 100%;
+            width: 100%;
+            background: #bdbdbd;
+            font-family: 'Arimo', Arial, sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+            color: #010b26;
+        }
+        
+        * {
+            -webkit-transition: 300ms;
+            transition: 300ms;
+        }
+        
+        .intro {
+            text-align: center;
+        }
+        
+        ul {
+            list-style-type: none;
+        }
+        
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        p {
+            font-weight: 400;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        a:hover {
+            color: #6ABCEA;
+        }
+        
+        .container {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            max-width: 100%;
+            margin-top: 10vh;
+            margin-left: auto;
+            margin-right: auto;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+        }
+        
+        .movie-card {
+            background: #ffffff;
+            box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 315px;
+            margin: 2em;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        
+        .movie-header {
+            padding: 0;
+            margin: 0;
+            height: 367px;
+            width: 100%;
+            display: block;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        
+        .manOfSteel {
+            background: url("http://henrycavill.org/images/Films/2013-Man-of-Steel/posters/3-Walmart-Superman-a.jpg");
+            background-size: cover;
+        }
+        
+        .babyDriver {
+            background: url("https://i0.wp.com/media2.slashfilm.com/slashfilm/wp/wp-content/images/baby-driver-poster.jpg");
+            background-size: cover;
+        }
+        
+        .theDarkTower {
+            background: url("http://cdn.collider.com/wp-content/uploads/2017/03/the-dark-tower-poster.jpg");
+            background-size: cover;
+            background-position: 100% 100%;
+        }
+        
+        .bladeRunner2049 {
+            background: url("http://cdn.collider.com/wp-content/uploads/2017/05/blade-runner-2049-poster-ryan-gosling.jpeg");
+            background-size: cover;
+            background-position: 100% 80%;
+        }
+        
+        .header-icon-container {
+            position: relative;
+        }
+        
+        .header-icon {
+            width: 100%;
+            height: 367px;
+            line-height: 367px;
+            text-align: center;
+            vertical-align: middle;
+            margin: 0 auto;
+            color: #ffffff;
+            font-size: 54px;
+            text-shadow: 0px 0px 20px #6abcea, 0px 5px 20px #6ABCEA;
+            opacity: .85;
+        }
+        
+        .header-icon:hover {
+            background: rgba(0, 0, 0, 0.15);
+            font-size: 74px;
+            text-shadow: 0px 0px 20px #6abcea, 0px 5px 30px #6ABCEA;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            opacity: 1;
+        }
+        
+        .movie-card:hover {
+            -webkit-transform: scale(1.03);
+            transform: scale(1.03);
+            box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.08);
+        }
+        
+        .movie-content {
+            padding: 18px 18px 24px 18px;
+            margin: 0;
+        }
+        
+        .movie-content-header,
+        .movie-info {
+            display: table;
+            width: 100%;
+        }
+        
+        .movie-title {
+            font-size: 24px;
+            margin: 0;
+            display: table-cell;
+        }
+        
+        .imax-logo {
+            width: 50px;
+            height: 15px;
+            background: url("https://6a25bbd04bd33b8a843e-9626a8b6c7858057941524bfdad5f5b0.ssl.cf5.rackcdn.com/media_kit/3e27ede823afbf139c57f1c78a03c870.jpg") no-repeat;
+            background-size: contain;
+            display: table-cell;
+            float: right;
+            position: relative;
+            margin-top: 5px;
+        }
+        
+        .movie-info {
+            margin-top: 1em;
+        }
+        
+        .info-section {
+            display: table-cell;
+            text-transform: uppercase;
+            text-align: center;
+        }
+        
+        .info-section:first-of-type {
+            text-align: left;
+        }
+        
+        .info-section:last-of-type {
+            text-align: right;
+        }
+        
+        .info-section label {
+            display: block;
+            color: rgba(0, 0, 0, 0.5);
+            margin-bottom: .5em;
+            font-size: 9px;
+        }
+        
+        .info-section span {
+            font-weight: 700;
+            font-size: 11px;
+        }
+        
+        @media screen and (max-width: 500px) {
+            .movie-card {
+                width: 95%;
+                max-width: 95%;
+                margin: 1em;
+                display: block;
+            }
+            .container {
+                padding: 0;
+                margin: 0;
+            }
+        }
+        
+        .gameConsoleProducer {
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+    <script>
+        let json = '[{"Name":"Microsoft","Consoles":[{"Name":"XBOX One","Games":[{"Name":"Thief","Cover":"XBOX_One/Thief.jpg"},{"Name":"Dragon Age: Inquisition","Cover":"XBOX_One/Dragon_Age__Inquisition.jpg"},{"Name":"Mirrors Edge Catalyst","Cover":"XBOX_One/Mirrors_Edge_Catalyst.jpg"},{"Name":"Ryse Son of Rome","Cover":"XBOX_One/Ryse_Son_of_Rome.jpg"},{"Name":"Borderlands 3","Cover":"XBOX_One/Borderlands_3.jpg"},{"Name":"Final Fantasy Type-0 HD","Cover":"XBOX_One/Final_Fantasy_Type-0_HD.jpg"},{"Name":"Halo 5: Guardians","Cover":"XBOX_One/Halo_5__Guardians.jpg"},{"Name":"Fifa 20","Cover":"XBOX_One/Fifa_20.jpg"},{"Name":"Halo Wars 2","Cover":"XBOX_One/Halo_Wars_2.jpg"},{"Name":"Mittelerde Mordors Schatten","Cover":"XBOX_One/Mittelerde_Mordors_Schatten.jpg"},{"Name":"Murder Soul Suspect","Cover":"XBOX_One/Murder_Soul_Suspect.jpg"},{"Name":"Project Cars","Cover":"XBOX_One/Project_Cars.jpg"}]},{"Name":"Xbox 360","Games":[{"Name":"Forza Motorsport 2 (Limitierte Sammler Edition)","Cover":"Xbox_360/Forza_Motorsport_2__Limitierte_Sammler_Edition_.jpg"},{"Name":"Call of Duty: Modern Warfare 3","Cover":"Xbox_360/Call_of_Duty__Modern_Warfare_3.jpg"},{"Name":"Kinect Adventures","Cover":"Xbox_360/Kinect_Adventures.jpg"},{"Name":"Singularity","Cover":"Xbox_360/Singularity.jpg"},{"Name":"Homefront","Cover":"Xbox_360/Homefront.jpg"},{"Name":"Viva Piñata","Cover":"Xbox_360/Viva_Piñata.jpg"},{"Name":"Grand theft Auto IV","Cover":"Xbox_360/Grand_theft_Auto_IV.jpg"},{"Name":"Skate 3","Cover":"Xbox_360/Skate_3.jpg"},{"Name":"L.A. Noire","Cover":"Xbox_360/L.A._Noire.jpg"},{"Name":"The Black Eyed Peas Experience","Cover":"Xbox_360/The_Black_Eyed_Peas_Experience.jpg"},{"Name":"Red Dead Redemption","Cover":"Xbox_360/Red_Dead_Redemption.jpg"},{"Name":"Grand Theft Auto V","Cover":"Xbox_360/Grand_Theft_Auto_V.jpg"},{"Name":"Gears of War 3","Cover":"Xbox_360/Gears_of_War_3.jpg"},{"Name":"Assassin\'s Creed Brotherhood","Cover":"Xbox_360/Assassin_s_Creed_Brotherhood.jpg"},{"Name":"Halo Wars","Cover":"Xbox_360/Halo_Wars.jpg"}]},{"Name":"Xbox","Games":[{"Name":"Dead or Alive 3","Cover":"Xbox/Dead_or_Alive_3.jpg"},{"Name":"Counter Strike","Cover":"Xbox/Counter_Strike.jpg"},{"Name":"Dead or Alive Xtreme Beach Volleyball","Cover":"Xbox/Dead_or_Alive_Xtreme_Beach_Volleyball.jpg"},{"Name":"Halo 2","Cover":"Xbox/Halo_2.jpg"},{"Name":"MotoGP Ultimate Racing Technology 3","Cover":"Xbox/MotoGP_Ultimate_Racing_Technology_3.jpg"},{"Name":"Crash Twinsanity","Cover":"Xbox/Crash_Twinsanity.jpg"},{"Name":"Tao Feng","Cover":"Xbox/Tao_Feng.jpg"},{"Name":"NBA 2k3","Cover":"Xbox/NBA_2k3.jpg"},{"Name":"Fifa 07","Cover":"Xbox/Fifa_07.jpg"},{"Name":"Need for Speed Underground","Cover":"Xbox/Need_for_Speed_Underground.jpg"},{"Name":"Thief Deadly Shadows ","Cover":"Xbox/Thief_Deadly_Shadows_.jpg"},{"Name":"Sudeki","Cover":"Xbox/Sudeki.jpg"},{"Name":"NHL Rivals 2004","Cover":"Xbox/NHL_Rivals_2004.jpg"},{"Name":"Tenchu Return from Darkness","Cover":"Xbox/Tenchu_Return_from_Darkness.jpg"}]}]},{"Name":"Sony","Consoles":[{"Name":"PS4","Games":[{"Name":"Uncharted The Nathan Drake Collection (PS Hits)","Cover":"PS4/Uncharted_The_Nathan_Drake_Collection__PS_Hits_.jpg"},{"Name":"Fifa 14","Cover":"PS4/Fifa_14.jpg"},{"Name":"Tom Calncy\'s The Division 2","Cover":"PS4/Tom_Calncy_s_The_Division_2.jpg"},{"Name":"Kingdom Hearts III","Cover":"PS4/Kingdom_Hearts_III.jpg"},{"Name":"Tom Clancy\'s Ghost Recon Wildlands","Cover":"PS4/Tom_Clancy_s_Ghost_Recon_Wildlands.jpg"},{"Name":"Tom Clancy\'s The Division Gold Edition","Cover":"PS4/Tom_Clancy_s_The_Division_Gold_Edition.jpg"},{"Name":"Need for Speed Payback","Cover":"PS4/Need_for_Speed_Payback.jpg"},{"Name":"Assassin\'s Creed Odyssey","Cover":"PS4/Assassin_s_Creed_Odyssey.jpg"},{"Name":"Red Dead Redemption 2","Cover":"PS4/Red_Dead_Redemption_2.jpg"},{"Name":"Dying Light The Following Enhanced Edition","Cover":"PS4/Dying_Light_The_Following_Enhanced_Edition.jpg"},{"Name":"Final Fantasy XII The Zodiac Age","Cover":"PS4/Final_Fantasy_XII_The_Zodiac_Age.jpg"},{"Name":"Need for Speed Heat","Cover":"PS4/Need_for_Speed_Heat.jpg"},{"Name":"No man\'s Sky","Cover":"PS4/No_man_s_Sky.jpg"},{"Name":"Watch Dogs 2","Cover":"PS4/Watch_Dogs_2.jpg"},{"Name":"Days Gone","Cover":"PS4/Days_Gone.jpg"},{"Name":"Kingdom Hearts HD 1.5 + 2.5 ReMIX","Cover":"PS4/Kingdom_Hearts_HD_1.5___2.5_ReMIX.jpg"},{"Name":"The Last of Us Part II","Cover":"PS4/The_Last_of_Us_Part_II.jpg"},{"Name":"Driveclub","Cover":"PS4/Driveclub.jpg"},{"Name":"Prey","Cover":"PS4/Prey.jpg"},{"Name":"Ratchet and Clank","Cover":"PS4/Ratchet_and_Clank.jpg"},{"Name":"Killzone Shadow Fall","Cover":"PS4/Killzone_Shadow_Fall.jpg"},{"Name":"The Last of Us Remastered (EN)","Cover":"PS4/The_Last_of_Us_Remastered__EN_.jpg"},{"Name":"Uncharted 4 A Thief\'s End","Cover":"PS4/Uncharted_4_A_Thief_s_End.jpg"},{"Name":"Tearaway Unfolded","Cover":"PS4/Tearaway_Unfolded.jpg"},{"Name":"The Witcher 3: Wild Hunt","Cover":"PS4/The_Witcher_3__Wild_Hunt.jpg"},{"Name":"Ghost of Tsushima","Cover":"PS4/Ghost_of_Tsushima.jpg"},{"Name":"God of War (PS Hits)","Cover":"PS4/God_of_War__PS_Hits_.jpg"},{"Name":"The Last of Us Remastered (PS Hits)","Cover":"PS4/The_Last_of_Us_Remastered__PS_Hits_.jpg"},{"Name":"God of War III Remastered (PS Hits)","Cover":"PS4/God_of_War_III_Remastered__PS_Hits_.jpg"}]},{"Name":"PSVITA","Games":[{"Name":"The Ratchet & Clank Triology","Cover":"PSVITA/The_Ratchet___Clank_Triology.jpg"}]},{"Name":"PSP","Games":[{"Name":"Resistance: Retribution","Cover":"PSP/Resistance__Retribution.jpg"},{"Name":"Medal of Honor Heroes 2","Cover":"PSP/Medal_of_Honor_Heroes_2.jpg"},{"Name":"Ratchet & Clank Size Matters (PSP Essentials)","Cover":"PSP/Ratchet___Clank_Size_Matters__PSP_Essentials_.jpg"},{"Name":"Secret Agent Clank (PSP Essentials)","Cover":"PSP/Secret_Agent_Clank__PSP_Essentials_.jpg"},{"Name":"Patapon (PSP Essentials)","Cover":"PSP/Patapon__PSP_Essentials_.jpg"},{"Name":"Monster Hunter Freedom Unite","Cover":"PSP/Monster_Hunter_Freedom_Unite.jpg"},{"Name":"GUN Showdown","Cover":"PSP/GUN_Showdown.jpg"},{"Name":"Die Simpsons Das Spiel","Cover":"PSP/Die_Simpsons_Das_Spiel.jpg"}]},{"Name":"PS3","Games":[{"Name":"Little Big Planet","Cover":"PS3/Little_Big_Planet.jpg"},{"Name":"Saints Row 2","Cover":"PS3/Saints_Row_2.jpg"},{"Name":"Uncharted 2: Among Thieves","Cover":"PS3/Uncharted_2__Among_Thieves.jpg"},{"Name":"Need for Speed Carbon","Cover":"PS3/Need_for_Speed_Carbon.jpg"},{"Name":"BEYOND: Two Souls","Cover":"PS3/BEYOND__Two_Souls.jpg"},{"Name":"UFC 2009 Undisputed","Cover":"PS3/UFC_2009_Undisputed.jpg"},{"Name":"Call of Duty Modern Warfare 2","Cover":"PS3/Call_of_Duty_Modern_Warfare_2.jpg"},{"Name":"Army of Two: The Devil\'s Cartel - Overkill Edition","Cover":"PS3/Army_of_Two__The_Devil_s_Cartel_-_Overkill_Edition.jpg"},{"Name":"Midnight Club Los Angeles","Cover":"PS3/Midnight_Club_Los_Angeles.jpg"},{"Name":"Resident Evil 5","Cover":"PS3/Resident_Evil_5.jpg"},{"Name":"Fifa 11","Cover":"PS3/Fifa_11.jpg"},{"Name":"Fifa 12","Cover":"PS3/Fifa_12.jpg"},{"Name":"Fifa 13","Cover":"PS3/Fifa_13.jpg"},{"Name":"Fifa 15","Cover":"PS3/Fifa_15.jpg"},{"Name":"Brothers in Arms: Hell\'s Highway","Cover":"PS3/Brothers_in_Arms__Hell_s_Highway.jpg"},{"Name":"Grand Theft Auto IV","Cover":"PS3/Grand_Theft_Auto_IV.jpg"},{"Name":"Saints Row The Third","Cover":"PS3/Saints_Row_The_Third.jpg"},{"Name":"Call of Duty: Black Ops","Cover":"PS3/Call_of_Duty__Black_Ops.jpg"},{"Name":"Uncharted 3: Drake\'s Deception","Cover":"PS3/Uncharted_3__Drake_s_Deception.jpg"},{"Name":"Uncharted 3: Drake\'s Deception","Cover":"PS3/Uncharted_3__Drake_s_Deception.jpg"},{"Name":"Ratchet & Clank: Quest for Booty","Cover":"PS3/Ratchet___Clank__Quest_for_Booty.jpg"},{"Name":"Ratchet & Clank: All 4 One","Cover":"PS3/Ratchet___Clank__All_4_One.jpg"},{"Name":"Ratchet & Clank: A Crack in Time","Cover":"PS3/Ratchet___Clank__A_Crack_in_Time.jpg"},{"Name":"Uncharted: Drakes Schicksal","Cover":"PS3/Uncharted__Drakes_Schicksal.jpg"},{"Name":"Heavy Rain","Cover":"PS3/Heavy_Rain.jpg"},{"Name":"The Last of Us","Cover":"PS3/The_Last_of_Us.jpg"},{"Name":"Need for Speed Hot Pursuit Limited Edition","Cover":"PS3/Need_for_Speed_Hot_Pursuit_Limited_Edition.jpg"}]},{"Name":"PS2","Games":[{"Name":"Pro Evolution Soccer 4","Cover":"PS2/Pro_Evolution_Soccer_4.jpg"},{"Name":"Kingdom Hearts II","Cover":"PS2/Kingdom_Hearts_II.jpg"},{"Name":"Kingdom Hearts II Platinum","Cover":"PS2/Kingdom_Hearts_II_Platinum.jpg"},{"Name":"Ratchet & Clank","Cover":"PS2/Ratchet___Clank.jpg"},{"Name":"Ratchet & Clank 2","Cover":"PS2/Ratchet___Clank_2.jpg"},{"Name":"Ratchet & Clank 3","Cover":"PS2/Ratchet___Clank_3.jpg"},{"Name":"SmackDown vs RAW 2007","Cover":"PS2/SmackDown_vs_RAW_2007.jpg"},{"Name":"Athens 2004","Cover":"PS2/Athens_2004.jpg"},{"Name":"Tekken 5","Cover":"PS2/Tekken_5.jpg"},{"Name":"Whiplash","Cover":"PS2/Whiplash.jpg"},{"Name":"Rayman Revolution","Cover":"PS2/Rayman_Revolution.jpg"},{"Name":"UEFA EURO 2004","Cover":"PS2/UEFA_EURO_2004.jpg"},{"Name":"Prince of Persia Warrior Within","Cover":"PS2/Prince_of_Persia_Warrior_Within.jpg"},{"Name":"Lara Croft Tomb Raider: The Angel of Darkness","Cover":"PS2/Lara_Croft_Tomb_Raider__The_Angel_of_Darkness.jpg"},{"Name":"Crash Bandicoot Der Zorn des Cortex","Cover":"PS2/Crash_Bandicoot_Der_Zorn_des_Cortex.jpg"},{"Name":"Grand Theft Auto San Andreas","Cover":"PS2/Grand_Theft_Auto_San_Andreas.jpg"},{"Name":"Grand Theft Auto San Andreas","Cover":"PS2/Grand_Theft_Auto_San_Andreas.jpg"},{"Name":"Grand Theft Auto Vice City","Cover":"PS2/Grand_Theft_Auto_Vice_City.jpg"},{"Name":"Gran Turismo 3 A-spec","Cover":"PS2/Gran_Turismo_3_A-spec.jpg"},{"Name":"Star Wars Battlefront","Cover":"PS2/Star_Wars_Battlefront.jpg"},{"Name":"Star Wars Battlefront II","Cover":"PS2/Star_Wars_Battlefront_II.jpg"},{"Name":"EyeToy: Play","Cover":"PS2/EyeToy__Play.jpg"},{"Name":"Final Fantasy X","Cover":"PS2/Final_Fantasy_X.jpg"},{"Name":"Disney Sing It (Hülle)","Cover":"PS2/Disney_Sing_It__Hülle_.jpg"},{"Name":"Blaue Hülle?","Cover":"PS2/Blaue_Hülle_.jpg"},{"Name":"Killzone (Sticker..)","Cover":"PS2/Killzone__Sticker.._.jpg"},{"Name":"Die Sims 2 Haustiere (Hülle)","Cover":"PS2/Die_Sims_2_Haustiere__Hülle_.jpg"},{"Name":"Tom Clancy\'s Ghost Recon Advanced Warfighter","Cover":"PS2/Tom_Clancy_s_Ghost_Recon_Advanced_Warfighter.jpg"},{"Name":"Hitman: Blood Money","Cover":"PS2/Hitman__Blood_Money.jpg"},{"Name":"F1 Championship Season 2000","Cover":"PS2/F1_Championship_Season_2000.jpg"},{"Name":"LEGO Star Wars: Die Klassische Triologie","Cover":"PS2/LEGO_Star_Wars__Die_Klassische_Triologie.jpg"},{"Name":"Gran Turismo 4","Cover":"PS2/Gran_Turismo_4.jpg"},{"Name":"Fifa 2001","Cover":"PS2/Fifa_2001.jpg"},{"Name":"Need for Speed Hot Pursuit 2","Cover":"PS2/Need_for_Speed_Hot_Pursuit_2.jpg"}]}]},{"Name":"Nintendo","Consoles":[{"Name":"Switch","Games":[{"Name":"Ring Fit Adventure","Cover":"Switch/Ring_Fit_Adventure.jpg"},{"Name":"Starlink Battle for Atlas","Cover":"Switch/Starlink_Battle_for_Atlas.jpg"},{"Name":"Animal Crossing New Horizons","Cover":"Switch/Animal_Crossing_New_Horizons.jpg"},{"Name":"Super Mario Party","Cover":"Switch/Super_Mario_Party.jpg"},{"Name":"Mario Kart 8 Deluxe","Cover":"Switch/Mario_Kart_8_Deluxe.jpg"},{"Name":"Super Mario 3D All-Stars","Cover":"Switch/Super_Mario_3D_All-Stars.jpg"}]},{"Name":"Nintendo 3DS","Games":[{"Name":"Fantasy Life","Cover":"Nintendo_3DS/Fantasy_Life.jpg"},{"Name":"Animal Crossing: Happy Home Designer","Cover":"Nintendo_3DS/Animal_Crossing__Happy_Home_Designer.jpg"},{"Name":"Animal Crossing: New Leaf","Cover":"Nintendo_3DS/Animal_Crossing__New_Leaf.jpg"},{"Name":"Yoshi\'s New Island","Cover":"Nintendo_3DS/Yoshi_s_New_Island.jpg"},{"Name":"Sonic Boom Der zerbrochene kristall","Cover":"Nintendo_3DS/Sonic_Boom_Der_zerbrochene_kristall.jpg"},{"Name":"Fire Emblem: Warriors","Cover":"Nintendo_3DS/Fire_Emblem__Warriors.jpg"}]},{"Name":"WiiU","Games":[{"Name":"Super Mario Maker","Cover":"WiiU/Super_Mario_Maker.jpg"},{"Name":"Animal Crossing Amiibo Festival","Cover":"WiiU/Animal_Crossing_Amiibo_Festival.jpg"},{"Name":"New Super Mario Bros. U","Cover":"WiiU/New_Super_Mario_Bros._U.jpg"},{"Name":"Nintendoland","Cover":"WiiU/Nintendoland.jpg"}]},{"Name":"Wii","Games":[{"Name":"Animal Crossing: Let\'s Go to the City","Cover":"Wii/Animal_Crossing__Let_s_Go_to_the_City.jpg"},{"Name":"Spongebob Schwammkopf: Planktons fiese Roboter-rache","Cover":"Wii/Spongebob_Schwammkopf__Planktons_fiese_Roboter-rache.jpg"},{"Name":"Disney Micky Epic","Cover":"Wii/Disney_Micky_Epic.jpg"},{"Name":"Super Smash Bros. Brawl","Cover":"Wii/Super_Smash_Bros._Brawl.jpg"},{"Name":"Super Paper Mario","Cover":"Wii/Super_Paper_Mario.jpg"},{"Name":"Mario Party 8","Cover":"Wii/Mario_Party_8.jpg"},{"Name":"New Super Mario Bros. Wii","Cover":"Wii/New_Super_Mario_Bros._Wii.jpg"}]},{"Name":"Nintendo DS","Games":[{"Name":"Nintendogs Labrador & Friends","Cover":"Nintendo_DS/Nintendogs_Labrador___Friends.jpg"},{"Name":"Spectrobes","Cover":"Nintendo_DS/Spectrobes.jpg"},{"Name":"WarioWare Touched","Cover":"Nintendo_DS/WarioWare_Touched.jpg"},{"Name":"SimCity DS","Cover":"Nintendo_DS/SimCity_DS.jpg"},{"Name":"Zoo Tycoon DS","Cover":"Nintendo_DS/Zoo_Tycoon_DS.jpg"},{"Name":"Hana Deka Meine Haustierfarm","Cover":"Nintendo_DS/Hana_Deka_Meine_Haustierfarm.jpg"},{"Name":"Animal Crossing: Wild World","Cover":"Nintendo_DS/Animal_Crossing__Wild_World.jpg"},{"Name":"Animal Crossing: Wild World","Cover":"Nintendo_DS/Animal_Crossing__Wild_World.jpg"}]},{"Name":"Gamecube","Games":[{"Name":"Legend of Zelda: The Wind Waker (Limitierte Auflage)","Cover":"Gamecube/Legend_of_Zelda__The_Wind_Waker__Limitierte_Auflage_.jpg"},{"Name":"Doubutsu no Mori","Cover":"Gamecube/Doubutsu_no_Mori.jpg"}]},{"Name":"Nintendo 64","Games":[{"Name":"Doubutsu no Mori","Cover":"Nintendo_64/Doubutsu_no_Mori.jpg"}]},{"Name":"SNES","Games":[{"Name":"Super Mario World","Cover":"SNES/Super_Mario_World.jpg"}]},{"Name":"NES","Games":[{"Name":"Kirby\'s Dream Land","Cover":"NES/Kirby_s_Dream_Land.jpg"}]}]},{"Name":"Sega","Consoles":[{"Name":"Dreamcast","Games":[{"Name":"Kao The Kangaroo","Cover":"Dreamcast/Kao_The_Kangaroo.jpg"},{"Name":"Sega Bass Fishing","Cover":"Dreamcast/Sega_Bass_Fishing.jpg"},{"Name":"Hydro Thunder","Cover":"Dreamcast/Hydro_Thunder.jpg"},{"Name":"Super Runabout","Cover":"Dreamcast/Super_Runabout.jpg"}]}]}]';
+
+        $(document).ready(function() {
+
+            let gameConsoleProducers = JSON.parse(json);
+
+            let i = 0;
+            for (let gameConsoleProducer in gameConsoleProducers) {
+                let gameConsoleProducerName = gameConsoleProducers[gameConsoleProducer].Name;
+                let gameConsoles = gameConsoleProducers[gameConsoleProducer].Consoles;
+
+                let gameConsoleProducerDiv = $('<div>').addClass('gameConsoleProducer');
+                    $('.container').append(`<div class="producer" style="width: 100%;text-align:center;"><h1><a data-toggle="collapse" href="#collapse-producer-${i}">` + gameConsoleProducerName + "</a></h1></div>");
+
+                let y = 0;
+                for (let gameConsole in gameConsoles) {
+
+                    let gameConsoleDiv = $('<div>').addClass('game-console');
+
+                    let gameConsoleName = gameConsoles[gameConsole].Name;
+                    let gameConsoleGames = gameConsoles[gameConsole].Games;
+
+                    gameConsoleProducerDiv.append(`<h2 style="text-align: center"><a data-toggle="collapse" href="#collapse-console-${i}-${y}">` + gameConsoleName + '</a></h2>');
+                    for (let games in gameConsoleGames) {
+                        let gameName = gameConsoleGames[games].Name;
+                        let gameCover = gameConsoleGames[games].Cover;
+
+                        let cloned = $('#template').children().first().clone();
+
+                        cloned.find('#cover').css('background-image', 'url(covers/' + gameCover + ')');
+                        cloned.find('#movie-title').text(gameName);
+
+                        gameConsoleDiv.append(cloned);
+                    }
+                    gameConsoleProducerDiv.append(`<div class="collapse" id="collapse-console-${i}-${y}" style="text-align: center">` + gameConsoleDiv.html() + '</div>');
+
+                    y++;
+                }
+                $('.container').append(`<div class="collapse" id="collapse-producer-${i}">` + gameConsoleProducerDiv.html() + "</div>");
+                i++;
+            }
+
+            /*
+            let gameConsoleMaker = {}
+                        
+            // Group by console
+            let gameConsoles = {};
+            for (let i = 0; i < obj.length; i++) {
+                let gameConsole = obj[i].Console;
+                let gameConsoleMaker = obj[i].ConsoleMaker;
+                if(!(gameConsoleMaker in gameConsoles)){
+                    gameConsoles[gameConsoleMaker] = {};
+                }
+
+                if (gameConsole in gameConsoles[gameConsoleMaker]) {
+                    gameConsoles[gameConsoleMaker][gameConsole].push(obj[i]);
+                } else {
+                    gameConsoles[gameConsoleMaker][gameConsole] = [obj[i]];
+                }
+            }
+
+            // Go through consoles
+            let y = 0;
+            for (let gameConsole in gameConsoles) {
+
+                for (let i = 0; i < gameConsoles[gameConsole].length; i++) {
+                    let maker = gameConsoles[gameConsole][i];
+                    
+                    for (let i = 0; i < maker.length; i++) {
+                        console.log(maker[i]);
+                    }
+                }
+
+                console.log(gameConsole);
+
+                let gameConsoleDiv = $('<div>').addClass('game-console');
+                for (let i = 0; i < gameConsoles[gameConsole].length; i++) {
+                    let game = gameConsoles[gameConsole][i];
+                    
+                    let cloned = $('#template').children().first().clone();
+                    
+                    cloned.find('#cover').css('background-image', 'url(covers/' + game.Cover + ')');
+                    cloned.find('#movie-title').text(game.Name);
+                    
+                    gameConsoleDiv.append(cloned);
+                }
+                $('.container').append(`<div class="console" style="width: 100%;text-align:center;"><h2><a data-toggle="collapse" href="#collapse-${y}">${gameConsole} (${gameConsoles[gameConsole].length})</a></h2><div class="collapse" id="collapse-${y}">${gameConsoleDiv.html()}</div></div>`);
+                y++;
+            }*/
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+    </div>
+    <!--container-->
+
+    <div style="display:none;" id="template">
+        <div class="movie-card">
+            <div class="movie-header" id="cover" style="background: url('https://static0.colliderimages.com/wordpress/wp-content/uploads/2017/03/the-dark-tower-poster.jpg');background-size: cover;">
+                <div class="header-icon-container">
+                    <a href="#">
+                        <i class="material-icons header-icon"></i>
+                    </a>
+                </div>
+            </div>
+            <!--movie-header-->
+            <div class="movie-content">
+                <div class="movie-content-header">
+                    <a href="#">
+                        <h3 class="movie-title" id="movie-title">Man of Steel</h3>
+                    </a>
+                </div>
+                <div class="movie-info" style="display: none;">
+                    <div class="info-section">
+                        <label>Date & Time</label>
+                        <span>Sun 8 Sept - 10:00PM</span>
+                    </div>
+                    <!--date,time-->
+                    <div class="info-section">
+                        <label>Screen</label>
+                        <span>03</span>
+                    </div>
+                    <!--screen-->
+                    <div class="info-section">
+                        <label>Row</label>
+                        <span>F</span>
+                    </div>
+                    <!--row-->
+                    <div class="info-section">
+                        <label>Seat</label>
+                        <span>21,22</span>
+                    </div>
+                    <!--seat-->
+                </div>
+            </div>
+            <!--movie-content-->
+        </div>
+    </div>
+</body>
+
+</html>
